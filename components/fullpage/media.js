@@ -16,10 +16,10 @@ export const Home = withNavigationContext(({ fullpage }) => {
       <Content
         main={
           <Lettering
-            title="INDEX"
+            title="Hi! I'm Protik Sarkar"
             text={[
-              "This is a single full page fixed screen.",
-              "Use the button bellow to navigate to the next page"
+              "An Ex-Aerospace Engineer who fell in love with Coding",
+              "Check out some Amazing Projects I've Worked on --------->"
             ]}
           />
         }
