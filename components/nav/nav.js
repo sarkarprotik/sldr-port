@@ -20,12 +20,6 @@ const Nav = withNavigationContext(({ fullpage }) => {
               <span>AWESOME SLIDER</span>
             </h1>
             <h2>FULL-PAGE TRANSITION STRATEGY</h2>
-            <small>
-              Built with {`<3`} by{" "}
-              <a target="_blank" href="https://caferati.me">
-                @rcaferati
-              </a>
-            </small>
           </div>
         </div>
         <nav>
