@@ -13,6 +13,7 @@ import "./fullpage.css";
 export const Home = withNavigationContext(({ fullpage }) => {
   return (
     <Section wrapper={false} backgroundColor="#292c35">
+      <Background src="https://caferati.me/images/series/bojack-0.png" />
       <Content
         main={
           <Lettering
@@ -26,12 +27,12 @@ export const Home = withNavigationContext(({ fullpage }) => {
         action={
           <div className="button">
             <AwesomeButton
-              size="large"
+              size="small"
               onPress={() => {
                 fullpage.navigate("/page-two");
               }}
             >
-              Goto the next page
+             forward
             </AwesomeButton>
           </div>
         }
@@ -41,9 +42,25 @@ export const Home = withNavigationContext(({ fullpage }) => {
 });
 
 export const Third = withNavigationContext(({ fullpage }) => {
+
+  let url = 'https://cmsbackend.herokuapp.com/articles/1'
+
+  // Simple POST request with a JSON body using fetch
+  const requestOptions = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  };
+  let image
+  async function callData() {
+    const res = await fetch(url)
+    const posts = await res.json()
+    console.log(posts)
+    image = posts.image.formats.small.url
+  }
+  callData()
   return (
     <Section wrapper={false} backgroundColor="#ff6f5e">
-      <Background src="https://caferati.me/images/series/bojack-0.png" />
+      <Background src="https://res.cloudinary.com/dbcjs8bca/image/upload/v1591213509/large_IMG_0166_c0ecea609d.png" />
       <Content
         main={
           <Lettering
@@ -59,7 +76,7 @@ export const Third = withNavigationContext(({ fullpage }) => {
                 fullpage.navigate("/page-two");
               }}
             >
-              Goto the prev page
+              back
             </AwesomeButton>
           </div>
         }
@@ -71,6 +88,7 @@ export const Third = withNavigationContext(({ fullpage }) => {
 export const media = [
   {
     slug: "",
+    preload: ["https://caferati.me/images/series/bojack-0.png"],
     className: "slide page-one",
     children: <Home />
   },

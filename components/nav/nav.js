@@ -3,7 +3,6 @@ import {
   withNavigationContext,
   Link
 } from "react-awesome-slider/dist/navigation";
-import ReactLogo from "../react-logo/react-logo";
 import "./nav.scss";
 
 const Nav = withNavigationContext(({ fullpage }) => {
@@ -13,30 +12,29 @@ const Nav = withNavigationContext(({ fullpage }) => {
     <header className="page-header">
       <div className="page-header__wrapper">
         <div className="page-header__title">
-          <ReactLogo />
+          
           <div>
             <h1>
-              <span>REACT</span>
-              <span>AWESOME SLIDER</span>
+              <span>PROTIK</span>
+              <span>SARKAR</span>
             </h1>
-            <h2>FULL-PAGE TRANSITION STRATEGY</h2>
           </div>
         </div>
         <nav>
           <Link className={slug === "" ? "selected" : null} href="/">
-            index
+          me
           </Link>
           <Link
             className={slug === "page-two" ? "selected" : null}
             href="/page-two"
           >
-            page-two
+            my-stuff
           </Link>
           <Link
             className={slug === "page-three" ? "selected" : null}
             href="/page-three"
           >
-            page-three
+            meet-me
           </Link>
         </nav>
       </div>
