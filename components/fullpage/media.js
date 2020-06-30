@@ -66,17 +66,20 @@ export const Second = withNavigationContext(({ fullpage }) => {
     return (
       <div>
         {data.map((x) => {
-          <div>
-            <Section key={x.id} backgroundColor="#292c35">
-              <Background src={x.image.formats.large.url} />
-              {console.log('test', x.title)}
-              <Lettering
-                color='pink'
-                title={x.title}
-                text={[x.content]}
-              />
-            </Section>
-          </div>
+          return (
+
+            <div>
+              <Section key={x.id} backgroundColor="#292c35">
+                <Background src={x.image.formats.large.url} />
+                {console.log('test', x.title)}
+                <Lettering
+                  color='pink'
+                  title={x.title}
+                  text={[x.content]}
+                />
+              </Section>
+            </div>
+          )
         })}
       </div>
 
@@ -104,38 +107,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
           action={<Mouse />}
         />
       </Section>
-      {loading ? (<div>loading</div>) : (
-        <>
-          <Section backgroundColor="#292c35">
-            <Background src={data[0].image.formats.large.url} />
-            {console.log('test', data[0].title)}
-            <Lettering
-              color='pink'
-              title={data[0].title}
-              text={[data[0].content]}
-            />
-          </Section>
-          <Section backgroundColor="#292c35">
-            <Background src={data[1].image.formats.large.url} />
-            {console.log('test', data[1].title)}
-            <Lettering
-              color='pink'
-              title={data[1].title}
-              text={[data[1].content]}
-            />
-          </Section>
-          <Section wrapper={true} backgroundColor="grey">
-            <Background src={data[2].image.formats.large.url} />
-            {console.log('test', data[2].title)}
-            <Lettering
-              color='pink'
-              title={data[2].title}
-              text={[data[2].content]}
-            />
-
-          </Section>
-        </>
-      )}
+      {loading ? <div>loading...</div> : createComponent(data)}
     </Page>
   );
 });
