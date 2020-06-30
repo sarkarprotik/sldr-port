@@ -46,25 +46,51 @@ export const Home = withNavigationContext(({ fullpage }) => {
 });
 
 export const Second = withNavigationContext(({ fullpage }) => {
-  const [data, setData] = useState()
-  const [isDataHere, setIsDataHere] = useState(false)
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
   let url = 'https://cmsbackend.herokuapp.com/articles/'
 
   useEffect(() => {
     async function fetchData() {
       const result = await fetch(url);
-      setData(result.data);
-      setIsDataHere(true)
+      let data = await result.json()
+      setData(data);
+      setLoading(false)
+      console.log('this', data)
     }
     fetchData();
   }, []);
 
-  return (
 
+  const createComponent = (data) => {
+    return (
+      <div>
+        {data.map((x) => {
+          <div>
+            <Section key={x.id} backgroundColor="#292c35">
+              <Background src={x.image.formats.large.url} />
+              {console.log('test', x.title)}
+              <Lettering
+                color='pink'
+                title={x.title}
+                text={[x.content]}
+              />
+            </Section>
+          </div>
+        })}
+      </div>
+
+    )
+  }
+
+
+
+
+
+
+  return (
     <Page>
-      
-          
-      <Section wrapper={false} backgroundColor="#292c35">
+      <Section wrapper={true} backgroundColor="#292c35">
         <Background src="https://caferati.me/images/series/bojack-0.png" />
         <Content
           main={
@@ -78,30 +104,45 @@ export const Second = withNavigationContext(({ fullpage }) => {
           action={<Mouse />}
         />
       </Section>
+      {loading ? (<div>loading</div>) : (
+        <>
+          <Section backgroundColor="#292c35">
+            <Background src={data[0].image.formats.large.url} />
+            {console.log('test', data[0].title)}
+            <Lettering
+              color='pink'
+              title={data[0].title}
+              text={[data[0].content]}
+            />
+          </Section>
+          <Section backgroundColor="#292c35">
+            <Background src={data[1].image.formats.large.url} />
+            {console.log('test', data[1].title)}
+            <Lettering
+              color='pink'
+              title={data[1].title}
+              text={[data[1].content]}
+            />
+          </Section>
+          <Section wrapper={true} backgroundColor="grey">
+            <Background src={data[2].image.formats.large.url} />
+            {console.log('test', data[2].title)}
+            <Lettering
+              color='pink'
+              title={data[2].title}
+              text={[data[2].content]}
+            />
 
-      <Section backgroundColor="black">
-        <Background src="https://caferati.me/images/series/bojack-0.png" />
-        <Lettering
-          color='pink'
-          title="PAGE-SECTION"
-          text={["This is a continued page section."]}
-        />
-      </Section>
-
-      <Section backgroundColor="#292c35">
-        <Background src="https://caferati.me/images/series/bojack-0.png" />
-        <Lettering
-          title="PAGE-SECTION"
-          text={["This is a continued page section."]}
-        />
-      </Section>
+          </Section>
+        </>
+      )}
     </Page>
   );
 });
 
 export const Third = withNavigationContext(({ fullpage }) => {
   return (
-    <Section wrapper={false} backgroundColor="#292c35" >
+    <Section wrapper={true} backgroundColor="#292c35" >
       <Background src="https://caferati.me/images/series/bojack-0.png" />
       <Content
         main={
