@@ -49,7 +49,6 @@ export const Second = withNavigationContext(({ fullpage }) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   let url = 'https://cmsbackend.herokuapp.com/articles/'
-
   useEffect(() => {
     async function fetchData() {
       const result = await fetch(url);
@@ -74,8 +73,9 @@ export const Second = withNavigationContext(({ fullpage }) => {
                 {console.log('test', x.title)}
                 <Lettering
                   color='pink'
+                  image={x.image.formats.large.url}
                   title={x.title}
-                  text={[x.content]}
+                  text={['st']}
                 />
               </Section>
             </div>
@@ -85,12 +85,6 @@ export const Second = withNavigationContext(({ fullpage }) => {
 
     )
   }
-
-
-
-
-
-
   return (
     <Page>
       <Section wrapper={true} backgroundColor="#292c35">

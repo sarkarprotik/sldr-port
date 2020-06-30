@@ -3,12 +3,28 @@
   font-family: monospace;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .lettering h1 {
   font-size: 32px;
   line-height: 40px;
   margin-bottom: 24px;
+}
+
+.lettering img {
+  height: 1fr;
+  width: 200px;
+  margin: 0;
+  background: lightyellow;
+  align-self: center;
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%; */
+  /* margin-right: -50%;
+  transform: translate(-50%, -50%)  */
+  
 }
 
 .lettering p {
