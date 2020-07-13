@@ -1,6 +1,6 @@
 $size: 72px;
 $speed: 2;
-$color-primary: #61dafb;
+$color-primary: pink;
 $total: 3;
 $angle: 66deg;
 
@@ -32,7 +32,7 @@ $angle: 66deg;
 
   &:before {
     content: ' ';
-    background-color: var(--background);
+    background-color: red;
     border-radius: calc(var(--size) / 12);
     display: block;
     height: calc(var(--size) / 6);
