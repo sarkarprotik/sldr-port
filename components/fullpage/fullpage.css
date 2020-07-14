@@ -27,19 +27,3 @@
   text-align: center;
   color: #fff;
 }
-
-
-@keyframes rotation{
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
-}
-.rotate{
-  width:80px;
-  height:80px;
-  animation: rotation infinite 3s linear;
-}

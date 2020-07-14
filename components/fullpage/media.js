@@ -75,29 +75,6 @@ export const Second = withNavigationContext(({ fullpage }) => {
   }
 
   const Loading = () => {
-
-    const [time_, setTime] = useState('');
-    let [txt, setText] = useState('lets...')
-    const aBC = 'ProtikSarkar'
-    let i = 0
-    const currentTime = () => {
-      let time
-      if (Date.now()) {
-        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-        let today = new Date();
-        time = today.toLocaleDateString("bn-BD", options)
-        i++
-      }
-      return time
-    };
-    useEffect(() => {
-      const interval_ = setInterval(() => setTime(() => currentTime()), 1000);
-      return () => {
-        clearInterval(interval_);
-      };
-    }, []);
-
-
     return (
       <>
         <div style={{ justifyItems: 'center', textAlign: 'center', backgroundColor: 'black', padding: 20, rotate: 1 }}>
@@ -105,15 +82,14 @@ export const Second = withNavigationContext(({ fullpage }) => {
             width="100"
             height="100"
             frameBorder="0"
-            className="rotate"
-            style={{ borderRadius: '50%', backgroundColor: 'black', borderWidth: 3, borderColor: 'pink' }}
+            style={{ borderRadius: '5%', backgroundColor: 'black', borderWidth: 5, borderColor: 'pink' }}
             allowFullScreen></iframe>
-          <p style={{ color: 'white' }}> Trying to Load...</p>
-          <p className="loading_text" style={{ color: 'white' }}>{time_} </p>
+          <p style={{ color: 'white' }}> Free Backends are always slow...</p>
         </div>
       </>
     )
   }
+
   return (
     <Page>
       <Section wrapper={true} backgroundColor="#292c35">
