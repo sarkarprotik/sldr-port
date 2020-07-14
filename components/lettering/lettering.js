@@ -12,7 +12,9 @@ const Lettering = ({ text = [], title = '', color, image }) => {
   return (
     <div className="lettering" >
       <h1 style={{ color: color || '#fff' }}>{title}</h1>
-      <img src={image} />
+      <div>
+        <img src={image} />
+      </div>
       {renderText()}
     </div>
   );

@@ -17,8 +17,9 @@
   height: 1fr;
   width: 200px;
   margin: 0;
-  background: lightyellow;
-  align-self: center;
+  /* border-radius: 50%; */
+  background-color: blue;
+  /* align-self: center; */
   /* position: absolute; */
   /* top: 50%;
   left: 50%; */

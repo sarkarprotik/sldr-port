@@ -26,17 +26,8 @@ export const Home = withNavigationContext(({ fullpage }) => {
               />
             </>
           }
-
           action={
             <div className="button">
-              <AwesomeButton
-                size="small"
-                onPress={() => {
-                  fullpage.navigate("/page-two");
-                }}
-              >
-                forward
-            </AwesomeButton>
             </div>
           }
         />
@@ -51,11 +42,10 @@ export const Second = withNavigationContext(({ fullpage }) => {
   let url = 'https://cmsbackend.herokuapp.com/articles/'
   useEffect(() => {
     async function fetchData() {
-      const result = await fetch(url);
+      let result = await fetch(url);
       let data = await result.json()
       setData(data);
       setLoading(false)
-      console.log('this', data)
     }
     fetchData();
   }, []);
@@ -64,25 +54,64 @@ export const Second = withNavigationContext(({ fullpage }) => {
   const createComponent = (data) => {
     return (
       <div>
-        {data.map((x) => {
+        {data.map((data_item, index) => {
           return (
-
             <div>
-              <Section key={x.id} backgroundColor="#292c35">
-                <Background src={x.image.formats.large.url} />
-                {console.log('test', x.title)}
+              <Section key={`${index}`} backgroundColor="#292c35">
+                <Background src={data_item.image.formats.large.url} />
                 <Lettering
                   color='pink'
-                  image={x.image.formats.large.url}
-                  title={x.title}
-                  text={['st']}
+                  image={data_item.image.formats.large.url}
+                  title={data_item.title}
+                  text={['Title']}
                 />
+                <div style={{ backgroundColor: 'red', width: 500, height: 200 }}>hello</div>
               </Section>
             </div>
           )
         })}
       </div>
+    )
+  }
 
+  const Loading = () => {
+
+    const [time_, setTime] = useState('');
+    let [txt, setText] = useState('lets...')
+    const aBC = 'ProtikSarkar'
+    let i = 0
+    const currentTime = () => {
+      let time
+      if (Date.now()) {
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        let today = new Date();
+        time = today.toLocaleDateString("bn-BD", options)
+        i++
+      }
+      return time
+    };
+    useEffect(() => {
+      const interval_ = setInterval(() => setTime(() => currentTime()), 1000);
+      return () => {
+        clearInterval(interval_);
+      };
+    }, []);
+
+
+    return (
+      <>
+        <div style={{ justifyItems: 'center', textAlign: 'center', backgroundColor: 'black', padding: 20, rotate: 1 }}>
+          <iframe src="https://giphy.com/embed/xTkcEQACH24SMPxIQg"
+            width="100"
+            height="100"
+            frameBorder="0"
+            className="rotate"
+            style={{ borderRadius: '50%', backgroundColor: 'black', borderWidth: 3, borderColor: 'pink' }}
+            allowFullScreen></iframe>
+          <p style={{ color: 'white' }}> Trying to Load...</p>
+          <p className="loading_text" style={{ color: 'white' }}>{time_} </p>
+        </div>
+      </>
     )
   }
   return (
@@ -101,7 +130,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
           action={<Mouse />}
         />
       </Section>
-      {loading ? <div>loading...</div> : createComponent(data)}
+      {!loading ? <Loading /> : createComponent(data)}
     </Page>
   );
 });
@@ -151,14 +180,14 @@ export const Third = withNavigationContext(({ fullpage }) => {
         }
         action={
           <div className="button">
-            <AwesomeButton
+            {/* <AwesomeButton
               size="large"
               onPress={() => {
                 fullpage.navigate("/page-two");
               }}
             >
               back
-            </AwesomeButton>
+            </AwesomeButton> */}
           </div>
         }
       />
