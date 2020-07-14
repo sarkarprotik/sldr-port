@@ -130,7 +130,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
           action={<Mouse />}
         />
       </Section>
-      {!loading ? <Loading /> : createComponent(data)}
+      {loading ? <Loading /> : createComponent(data)}
     </Page>
   );
 });
