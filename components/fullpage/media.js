@@ -8,7 +8,7 @@ import Content from "../content/content";
 import Mouse from "../mouse/mouse";
 import Section from "../section/section";
 import Page from "../page/page";
-import "./fullpage.css";
+// import "./fullpage.css";
 
 export const Home = withNavigationContext(({ fullpage }) => {
   return (
@@ -57,17 +57,34 @@ export const Second = withNavigationContext(({ fullpage }) => {
         {data.map((data_item, index) => {
           return (
             <div>
+              {/* <div style={{ backgroundColor: 'lightgreen', maxWidth: '50vw', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}> */}
               <Section key={`${index}`} backgroundColor="#292c35">
                 <Background src={data_item.image.formats.large.url} />
                 <Lettering
                   color='pink'
-                  image={data_item.image.formats.large.url}
                   title={data_item.title}
-                  text={['Title']}
                 />
-                <div style={{ backgroundColor: 'red', width: 500, height: 200 }}>hello</div>
-              </Section>
+                <div style={{padding:20, maxWidth: '50vh', textAlign: 'center'}}>
+                  <div style={{ height: 400, maxWidth: '50vh', backgroundColor: 'orange', borderRadius: 20, position: 'reletive', overflow: 'hidden' }}>
+                    <img
+                    style={{position: 'abosolute', justifySelf: 'center'}}
+                    src={data_item.image.formats.small.url}
+                  >
+                  </img>
+                  </div>
+                </div>
+                <div style={{ backgroundColor: 'lightblue', borderRadius: 20, maxWidth: '50vh', heightMin: 100, textAlign: 'center' }}>
+
+                  <Lettering
+                  color='white'
+                  title={[data_item.content]}
+                />
+                    {/* {[data_item.content]} */}
+
+                </div>
+              </Section>        
             </div>
+            // </div>
           )
         })}
       </div>
@@ -84,7 +101,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
             frameBorder="0"
             style={{ borderRadius: '5%', backgroundColor: 'black', borderWidth: 5, borderColor: 'pink' }}
             allowFullScreen></iframe>
-          <p style={{ color: 'white' }}> Free Backends are always slow...</p>
+          <p style={{ color: 'white' }}> <code>{`${'< '}`}Loading CMS ... {`${'/>'}`} </code></p>
         </div>
       </>
     )
@@ -106,7 +123,11 @@ export const Second = withNavigationContext(({ fullpage }) => {
           action={<Mouse />}
         />
       </Section>
-      {loading ? <Loading /> : createComponent(data)}
+    
+
+        {loading ? <Loading /> : createComponent(data)}
+
+      <Loading />
     </Page>
   );
 });
