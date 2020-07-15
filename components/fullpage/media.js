@@ -8,7 +8,7 @@ import Content from "../content/content";
 import Mouse from "../mouse/mouse";
 import Section from "../section/section";
 import Page from "../page/page";
-// import "./fullpage.css";
+import "./fullpage.css";
 
 export const Home = withNavigationContext(({ fullpage }) => {
   return (
@@ -64,23 +64,17 @@ export const Second = withNavigationContext(({ fullpage }) => {
                   color='pink'
                   title={data_item.title}
                 />
-                <div style={{padding:20, maxWidth: '50vh', textAlign: 'center'}}>
-                  <div style={{ height: 400, maxWidth: '50vh', backgroundColor: 'orange', borderRadius: 20, position: 'reletive', overflow: 'hidden' }}>
+                <div style={{ maxWidth: '50vh', textAlign: 'center', paddingBottom: 10}}>
+                  <div>
                     <img
-                    style={{position: 'abosolute', justifySelf: 'center'}}
+                    style={{ justifySelf: 'center', borderRadius: 20}}
                     src={data_item.image.formats.small.url}
                   >
                   </img>
                   </div>
                 </div>
-                <div style={{ backgroundColor: 'lightblue', borderRadius: 20, maxWidth: '50vh', heightMin: 100, textAlign: 'center' }}>
-
-                  <Lettering
-                  color='white'
-                  title={[data_item.content]}
-                />
-                    {/* {[data_item.content]} */}
-
+                <div style={{  height: '1fr',borderRadius: 10 }}>
+                  <p style={{fontFamily: 'monospace', color: 'lightblue', textAlign: 'center', fontFamily: 'bold'}}>{data_item.content}</p>
                 </div>
               </Section>        
             </div>

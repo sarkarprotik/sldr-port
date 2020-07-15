@@ -32,7 +32,7 @@ $angle: 66deg;
 
   &:before {
     content: ' ';
-    background-color: red;
+    
     border-radius: calc(var(--size) / 12);
     display: block;
     height: calc(var(--size) / 6);
