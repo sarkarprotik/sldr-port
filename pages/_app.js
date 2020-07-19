@@ -11,7 +11,6 @@ function App({ Component, pageProps }) {
     <Provider slug={router.route}>
       <Head>
         <title>
-          Fullpage Javascript Navigation HOC with React Awesome Slider
     
         </title>
         <meta

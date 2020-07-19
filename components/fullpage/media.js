@@ -55,30 +55,69 @@ export const Second = withNavigationContext(({ fullpage }) => {
     return (
       <div>
         {data.map((data_item, index) => {
+          console.log(data_item)
           return (
             <div>
-              {/* <div style={{ backgroundColor: 'lightgreen', maxWidth: '50vw', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}> */}
               <Section key={`${index}`} backgroundColor="#292c35">
                 <Background src={data_item.image.formats.large.url} />
-                <Lettering
-                  color='pink'
-                  title={data_item.title}
-                />
-                <div style={{ maxWidth: '50vh', textAlign: 'center', paddingBottom: 10}}>
-                  <div>
+                <div
+                  className='container1'
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}>
+                  <p
+                    className='tit_le'
+                    style={{
+                      fontFamily: 'monospace',
+                      color: 'pink',
+                      justifyItems: 'center',
+                      textAlign: 'center',
+                      margin: 10,
+                      fontSize: 35,
+
+
+                    }}>
+                    {data_item.title}
+                  </p>
+
+                  <div 
+                  className='img_contain_er'
+                  style={{
+                    backgroundColor: '#292c35',
+                    justifyItems: 'center',
+                    padding: 5
+                  }}>
                     <img
-                    style={{ justifySelf: 'center', borderRadius: 20}}
-                    src={data_item.image.formats.small.url}
-                  >
-                  </img>
+                      className='iiimmmgg'
+                      style={{ 
+                      backgroundColor: 'blue', 
+                      // justifySelf: 'center', 
+                      borderRadius: 20,
+                      margin: 5,
+                      maxWidth: window.innerWidth,
+                      objectFit: 'cover'
+                    }}
+                      src={data_item.image.formats.small.url}
+                    >
+                    </img>
                   </div>
+                    <p
+                    className='conten1_t'
+                    style={{
+                      fontFamily: 'monospace',
+                      color: 'lightblue',
+                      justifyItems: 'center',
+                      textAlign: 'center',
+                      margin: 15,
+                      fontSize: 20
+                    }}>
+                    {data_item.content}
+                  </p>
                 </div>
-                <div style={{  height: '1fr',borderRadius: 10 }}>
-                  <p style={{fontFamily: 'monospace', color: 'lightblue', textAlign: 'center', fontFamily: 'bold'}}>{data_item.content}</p>
-                </div>
-              </Section>        
+
+              </Section>
             </div>
-            // </div>
           )
         })}
       </div>
@@ -104,7 +143,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
   return (
     <Page>
       <Section wrapper={true} backgroundColor="#292c35">
-        <Background src="https://caferati.me/images/series/bojack-0.png" />
+        <Background src="https://images.unsplash.com/photo-1594886801338-b81548345f77" />
         <Content
           main={
             <Lettering
@@ -117,11 +156,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
           action={<Mouse />}
         />
       </Section>
-    
-
-        {loading ? <Loading /> : createComponent(data)}
-
-      <Loading />
+      {loading ? <Loading /> : createComponent(data)}
     </Page>
   );
 });
