@@ -9,6 +9,7 @@ import Mouse from "../mouse/mouse";
 import Section from "../section/section";
 import Page from "../page/page";
 import "./fullpage.css";
+import Startup from "../startup/startup";
 
 export const Home = withNavigationContext(({ fullpage }) => {
   return (
@@ -31,7 +32,7 @@ export const Home = withNavigationContext(({ fullpage }) => {
             </div>
           }
         />
-         
+
       </Section>
     </>
   );
@@ -41,7 +42,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   let url = 'https://cmsbackend.herokuapp.com/articles/'
-  
+
   useEffect(() => {
     async function fetchData() {
       let result = await fetch(url);
@@ -57,16 +58,20 @@ export const Second = withNavigationContext(({ fullpage }) => {
     return (
       <div>
         {data.map((data_item, index) => {
-          console.log(data_item)
+          let string = data_item.content
+          let string_array = string.split('SPLIT');
+          let text = string_array[0]
+          let url = string_array[1]
+          console.log(text, url);
           return (
             <div>
-              <Section key={`${index}`} backgroundColor="#292c35">
-                <Background src={data_item.image.formats.large.url} />
+              <Section wrapper={false} key={`${index}`} backgroundColor="#292c35">
+                <Background src={data_item.image.formats.large.url}/>
                 <div
                   className='container1'
                   style={{
                     display: 'flex',
-                    flexDirection: 'column'
+                    flexDirection: 'column',
                   }}>
                   <p
                     className='tit_le'
@@ -77,34 +82,36 @@ export const Second = withNavigationContext(({ fullpage }) => {
                       textAlign: 'center',
                       margin: 10,
                       fontSize: 35,
+                      zIndex: 1
 
 
                     }}>
                     {data_item.title}
                   </p>
 
-                  <div 
-                  className='img_contain_er'
-                  style={{
-                    backgroundColor: '#292c35',
-                    justifyItems: 'center',
-                    padding: 5
-                  }}>
+                  <div
+                    className='img_contain_er'
+                    style={{
+                      backgroundColor: '#292c35',
+                      justifyItems: 'center',
+                      padding: 5
+                    }}>
                     <img
                       className='iiimmmgg'
-                      style={{ 
-                      backgroundColor: 'blue', 
-                      // justifySelf: 'center', 
-                      borderRadius: 20,
-                      margin: 5,
-                      // maxWidth: window.innerWidth,
-                      objectFit: 'scale-down'
-                    }}
+                      style={{
+                        backgroundColor: 'blue',
+                        borderRadius: 20,
+                        width: '1fr',
+                        margin: 15,
+                        objectFit: 'cover',
+                        zIndex: 1
+                      }}
                       src={data_item.image.formats.large.url}
                     >
                     </img>
                   </div>
-                    <p
+                  <p
+
                     className='conten1_t'
                     style={{
                       fontFamily: 'monospace',
@@ -112,12 +119,18 @@ export const Second = withNavigationContext(({ fullpage }) => {
                       justifyItems: 'center',
                       textAlign: 'center',
                       margin: 15,
-                      fontSize: 20
+                      fontSize: 20,
+                      zIndex: 1
                     }}>
-                    {data_item.content}
+                    {`${text} `}
+                    <a alt={'A Link to the Project'} style={{zIndex: 1, color: 'hotpink'}} href={url} target="_blank">{'#Link'}</a>
                   </p>
+                    
+
                 </div>
+
               </Section>
+
             </div>
           )
         })}
@@ -233,7 +246,13 @@ export const media = [
   {
     slug: "page-two",
     // preload: ["https://images.unsplash.com/photo-1594886801338-b81548345f77"],
-    className: "sectioned page-two",
+    className: "slide page-two",
     children: <Second />
+  },
+  {
+    slug: "page-three",
+    preload: ["https://caferati.me/images/series/bojack-0.png"],
+    className: "slide page-three",
+    children: <Third />
   }
 ];

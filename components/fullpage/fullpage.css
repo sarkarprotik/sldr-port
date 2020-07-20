@@ -1,13 +1,13 @@
-/* .awesome-slider {
+ .awesome-slider {
   --organic-arrow-color: #fff;
-} */
+} 
 
-/* .sectioned {
+.sectioned {
   display: block;
   overflow: scroll;
-} */
+} 
 
-/* .slide {
+ .slide {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,15 +15,15 @@
   min-height: 100%;
   width: 100%;
   background-color: teal;
-} */
+} 
 
-/* .awssld__content > img {
+.awssld__content > img {
   filter: grayscale(100%) opacity(35%);
   mix-blend-mode: multiply;
-} */
-/* 
+} 
+
 .button {
   font-family: monospace;
   text-align: center;
   color: #fff;
-} */
+}
