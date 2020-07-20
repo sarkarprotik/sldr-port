@@ -16,25 +16,20 @@ const Nav = withNavigationContext(({ fullpage }) => {
           <div>
             <h1>
               <span>PROTIK</span>
-              <span>SARKAR</span>
+              <span>SARKAR {String.fromCodePoint('0x1F50A')}</span>
             </h1>
           </div>
         </div>
         <nav>
-          <Link className={slug === "" ? "selected" : null} href="/">
+          <Link className={slug === "" ? null : null} href="/">
           me
           </Link>
           <Link
             className={slug === "page-two" ? "selected" : null}
+            className={slug === "page-two" ? "selected" : null}
             href="/page-two"
           >
             my-stuff
-          </Link>
-          <Link
-            className={slug === "page-three" ? "selected" : null}
-            href="/page-three"
-          >
-            contact
           </Link>
         </nav>
       </div>

@@ -31,6 +31,7 @@ export const Home = withNavigationContext(({ fullpage }) => {
             </div>
           }
         />
+         
       </Section>
     </>
   );
@@ -40,6 +41,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   let url = 'https://cmsbackend.herokuapp.com/articles/'
+  
   useEffect(() => {
     async function fetchData() {
       let result = await fetch(url);
@@ -95,10 +97,10 @@ export const Second = withNavigationContext(({ fullpage }) => {
                       // justifySelf: 'center', 
                       borderRadius: 20,
                       margin: 5,
-                      maxWidth: window.innerWidth,
-                      objectFit: 'cover'
+                      // maxWidth: window.innerWidth,
+                      objectFit: 'scale-down'
                     }}
-                      src={data_item.image.formats.small.url}
+                      src={data_item.image.formats.large.url}
                     >
                     </img>
                   </div>
@@ -115,7 +117,6 @@ export const Second = withNavigationContext(({ fullpage }) => {
                     {data_item.content}
                   </p>
                 </div>
-
               </Section>
             </div>
           )
@@ -143,7 +144,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
   return (
     <Page>
       <Section wrapper={true} backgroundColor="#292c35">
-        <Background src="https://images.unsplash.com/photo-1594886801338-b81548345f77" />
+        <Background src="https://images.unsplash.com/reserve/jmdO6mZaSHujNfrP3HxV_13486382943_71b791144c_o.jpg" />
         <Content
           main={
             <Lettering
@@ -231,13 +232,8 @@ export const media = [
   },
   {
     slug: "page-two",
+    // preload: ["https://images.unsplash.com/photo-1594886801338-b81548345f77"],
     className: "sectioned page-two",
     children: <Second />
-  },
-  {
-    slug: "page-three",
-    preload: ["https://caferati.me/images/series/bojack-0.png"],
-    className: "slide page-three",
-    children: <Third />
   }
 ];

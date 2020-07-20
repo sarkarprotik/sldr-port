@@ -11,7 +11,7 @@ function App({ Component, pageProps }) {
     <Provider slug={router.route}>
       <Head>
         <title>
-    
+          Protik Sarkar
         </title>
         <meta
           name="viewport"
@@ -19,7 +19,7 @@ function App({ Component, pageProps }) {
         />
         <meta
           name="description"
-          content="Fullpage navigation HOC with 3D animated transitions built on top of React Awesome Slider. GatsbyJS and NextJS recipes available."
+          content="An Infography of a single node known as Protik Sarkar in the Cosmos"
         />
         <link rel="shortcut icon" href="/static/favicon.ico" />
       </Head>
