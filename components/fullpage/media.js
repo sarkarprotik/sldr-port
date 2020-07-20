@@ -246,7 +246,7 @@ export const media = [
   {
     slug: "page-two",
     // preload: ["https://images.unsplash.com/photo-1594886801338-b81548345f77"],
-    className: "slide page-two",
+    className: "sectioned page-two",
     children: <Second />
   },
   {

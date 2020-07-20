@@ -16,7 +16,7 @@ const Nav = withNavigationContext(({ fullpage }) => {
           <div>
             <h1>
               <span>PROTIK</span>
-              <span>SARKAR {String.fromCodePoint('0x1F50A')}</span>
+              <span>SARKAR</span>
             </h1>
           </div>
         </div>
