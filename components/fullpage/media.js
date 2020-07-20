@@ -9,7 +9,8 @@ import Mouse from "../mouse/mouse";
 import Section from "../section/section";
 import Page from "../page/page";
 import "./fullpage.css";
-import Startup from "../startup/startup";
+
+
 
 export const Home = withNavigationContext(({ fullpage }) => {
   return (
@@ -65,7 +66,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
           console.log(text, url);
           return (
             <div>
-              <Section key={`${index}`} backgroundColor="#292c35">
+              <Section wrapper={false} key={`${index}`} backgroundColor="#292c35">
                 <Background src={data_item.image.formats.large.url}/>
                 <div
                   className='container1'
@@ -237,22 +238,22 @@ export const Third = withNavigationContext(({ fullpage }) => {
 });
 
 export const media = [
-  {
-    slug: "",
-    preload: ["https://res.cloudinary.com/dbcjs8bca/image/upload/v1593472086/large_image_85a4339b93.png"],
-    className: "slide page-one",
-    children: <Home />
-  },
+  // {
+  //   slug: "",
+  //   preload: ["https://res.cloudinary.com/dbcjs8bca/image/upload/v1593472086/large_image_85a4339b93.png"],
+  //   className: "slide page-one",
+  //   children: <Home />
+  // },
   {
     slug: "page-two",
     // preload: ["https://images.unsplash.com/photo-1594886801338-b81548345f77"],
     className: "sectioned page-two",
     children: <Second />
   },
-  {
-    slug: "page-three",
-    preload: ["https://caferati.me/images/series/bojack-0.png"],
-    className: "slide page-three",
-    children: <Third />
-  }
+  // {
+  //   slug: "page-three",
+  //   preload: ["https://caferati.me/images/series/bojack-0.png"],
+  //   className: "slide page-three",
+  //   children: <Third />
+  // }
 ];

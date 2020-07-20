@@ -3,8 +3,8 @@
 } 
 
 .sectioned {
-  display: block;
-  overflow: scroll;
+   display: block; 
+   overflow: scroll; 
 } 
 
  .slide {
