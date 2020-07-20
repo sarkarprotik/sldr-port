@@ -65,7 +65,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
           console.log(text, url);
           return (
             <div>
-              <Section wrapper={false} key={`${index}`} backgroundColor="#292c35">
+              <Section key={`${index}`} backgroundColor="#292c35">
                 <Background src={data_item.image.formats.large.url}/>
                 <div
                   className='container1'
