@@ -20,10 +20,11 @@ export default withNavigationContext(({ fullpage }) => {
 
   return (
     <Slider
+      className="awesome-slider"
       startupScreen={<Startup />}
       startupDelay={775}
       animation={animation}
-      className="awesome-slider"
+      mobileTouch={true}
       onTransitionEnd={() => {
         // HANDLE THE PAGE ELEMENTS ANIMATION ON FIRST TRANSITION END
         if (isFirstLoad.current === true) {

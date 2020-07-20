@@ -57,7 +57,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
 
   const createComponent = (data) => {
     return (
-      <div>
+      <>
         {data.map((data_item, index) => {
           let string = data_item.content
           let string_array = string.split('SPLIT');
@@ -66,13 +66,16 @@ export const Second = withNavigationContext(({ fullpage }) => {
           console.log(text, url);
           return (
             <div>
-              <Section wrapper={false} key={`${index}`} backgroundColor="#292c35">
-                <Background src={data_item.image.formats.large.url}/>
+              <Section backgroundColor="#292c35">
+
+                <Background src={data_item.image.formats.large.url} />
                 <div
                   className='container1'
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
+                    // backgroundColor: 'red',
+                    zIndex: 1
                   }}>
                   <p
                     className='tit_le'
@@ -94,7 +97,7 @@ export const Second = withNavigationContext(({ fullpage }) => {
                     className='img_contain_er'
                     style={{
                       backgroundColor: '#292c35',
-                      justifyItems: 'center',
+
                       padding: 5
                     }}>
                     <img
@@ -102,10 +105,6 @@ export const Second = withNavigationContext(({ fullpage }) => {
                       style={{
                         backgroundColor: 'blue',
                         borderRadius: 20,
-                        width: '1fr',
-                        margin: 15,
-                        objectFit: 'cover',
-                        zIndex: 1
                       }}
                       src={data_item.image.formats.large.url}
                     >
@@ -124,18 +123,19 @@ export const Second = withNavigationContext(({ fullpage }) => {
                       zIndex: 1
                     }}>
                     {`${text} `}
-                    <a alt={'A Link to the Project'} style={{zIndex: 1, color: 'hotpink'}} href={url} target="_blank">{'#Link'}</a>
+                    <a alt={'A Link to the Project'} style={{ zIndex: 1, color: 'hotpink' }} href={url} target="_blank">{'#Link'}</a>
                   </p>
-                    
+
 
                 </div>
 
-              </Section>
 
+              </Section>
             </div>
           )
         })}
-      </div>
+
+      </>
     )
   }
 
@@ -238,22 +238,22 @@ export const Third = withNavigationContext(({ fullpage }) => {
 });
 
 export const media = [
-  // {
-  //   slug: "",
-  //   preload: ["https://res.cloudinary.com/dbcjs8bca/image/upload/v1593472086/large_image_85a4339b93.png"],
-  //   className: "slide page-one",
-  //   children: <Home />
-  // },
+  {
+    slug: "",
+    preload: ["https://res.cloudinary.com/dbcjs8bca/image/upload/v1593472086/large_image_85a4339b93.png"],
+    className: "slide page-one",
+    children: <Home />
+  },
   {
     slug: "page-two",
     // preload: ["https://images.unsplash.com/photo-1594886801338-b81548345f77"],
     className: "sectioned page-two",
     children: <Second />
   },
-  // {
-  //   slug: "page-three",
-  //   preload: ["https://caferati.me/images/series/bojack-0.png"],
-  //   className: "slide page-three",
-  //   children: <Third />
-  // }
+  {
+    slug: "page-three",
+    preload: ["https://caferati.me/images/series/bojack-0.png"],
+    className: "slide page-three",
+    children: <Third />
+  }
 ];
